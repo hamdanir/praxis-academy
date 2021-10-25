@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food</title>
+    <link rel="stylesheet" type="text/css" href="core.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <style>
+        .atas {
+            float: top;
+	        margin-right: auto;
+	        margin-left: auto;
+            background-color: #7FFFD4;
+            text-align: center;
+            height: 40%;
+            
+        }
+
+        .kanan {
+            float: right;
+            width: 70%;
+            text-align: center;
+            background-color: #A52A2A;
+        }
+
+        .kiri {
+            float: left; 
+            width: 30%;
+            text-align: center;
+            background-color: #5F9EA0;
+        }
+        .kanan_atas {
+            width: 100%;
+            height: 50%;
+            background-color: cadetblue;
+        }
+        .kanan_tengah {
+            width: 100%;
+            height: 40%;
+            background-color: coral;
+        }
+        .kiri1 {
+            height: 50%;
+        }
+        .kiri2 {
+            height: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div class="atas">
+            <h1>OMAH MADYANG</h1>
+        </div>
+        <!-- <div>
+            <a href="/index">Makanan</a>
+            <a href="/minuman">Minuman</a>
+        </div> -->
+        <div class="kiri">
+            <div class="kiri1"><h1>MAKANAN</h1>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    
+                        <label>Nama</label>
+                        <input type="text" name="itemmakan">
+                        <br>
+                    
+                        <label>Jenis</label>
+                        <select name="jenismakan">
+                            <option value="kering">Kering</option>
+                            <option value="basah">Basah</option>
+                            <option value="goreng">Goreng</option>
+                            <option value="rebus">Rebus</option>
+                            <option value="Bakar">Bakar</option>
+                        </select>
+                        <br>
+                    
+                        <label>Jumlah</label>
+                        <input type="number" name="jumlahmakan">
+                        <br>
+                    
+                        <label>Harga</label>
+                        <input type="text" name="hargamakan">
+                        <br>
+                        <!-- <button type="submit">Tambah</button>
+                        <br>  -->
+                </form>
+            <div class="kiri2">
+                <h1>MINUMAN</h1>
+                <form action="" method="POST">
+                        {% csrf_token %}
+                        
+                        <label>Nama</label>
+                        <input type="text" name="itemminum">
+                        <br>
+                        
+                        <label>Jenis</label>
+                        <select name="jenisminum">
+                            <option value="panas">Panas</option>
+                            <option value="dingin">Dingin</option>
+                        </select>
+                        <br>
+                        
+                        <label>Jumlah</label>
+                        <input type="number" name="jumlahminum">
+                        <br>
+                        
+                        <label>Harga</label>
+                        <input type="text" name="hargaminum">
+                        <br>
+                        
+                        <button type="submit">Tambah</button>
+                        <br>
+                        
+                </form>
+            </div>
+                
+            </div>
+        </div>
+
+        <div class="kanan">
+            <div class="kanan_atas">
+                <h1>Pesanan</h1>
+                <br>
+                <table class="table table-striped">
+                    
+                        
+                        <tr>
+                            <th scope="col">No</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Jenis</th>
+                            <th scope="col">Jumlah</th>
+                            <th scope="col">Harga</th>
+                            <th scope="col">Action</th>
+
+                        </tr>
+                        <br>
+                        <tr>
+                            {% for d in data %} 
+                        </tr>
+                        
+                    
+                        <tr>
+                            
+                            <td>{{forloop.counter}}</td>
+                    
+                    
+        
+                            <td>{{d.itemmakan}}</td>
+                            <td>{{d.jenismakan}}</td>
+                            <td>{{d.jumlahmakan}}</td>
+                            <td>Rp. {{d.hargamakan}}</td>
+    
+                            <td>
+                                <a type="button"class="btn btn-warning" href="{{d.id}}/edit">Edit</a>
+                                <a type="button"class="btn btn-danger" href="{{d.id}}/delete">Hapus</a>
+                            </td>
+                            
+                        </tr>
+                        {% endfor %}
+                        <br>
+                </table>
+
+                <table class="table table-striped">
+                    {% for d in data %} 
+                    <tr>
+                        <td>{{d.itemminum}}</td>
+                        <td>{{d.jenisminum}}</td>
+                        <td>{{d.jumlahminum}}</td>
+                        <td>Rp. {{d.hargaminum}}</td>  
+                        <td>
+                            <a type="button"class="btn btn-warning" href="minum/{{d.id}}/edit">Edit</a>
+                            <a type="button"class="btn btn-danger"  href="minum/{{d.id}}/delete">Hapus</a>
+                        </td>
+                    </tr>
+                    {% endfor %} 
+                </table>        
+                        
+                        
+                    
+                
+            </div>       
+        </div> 
+    </div>
+    </div>
+</body>
+</html>

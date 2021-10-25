@@ -1,0 +1,29 @@
+#string
+a= "phyton pemula"
+print(type(a))
+
+#integer
+print (20)
+#menyatakan bil bulat
+
+#float
+print (3.14)
+#menyatakan bil yang mempunyai koma
+
+#list
+angka = {1,2,3,4,5}
+print (angka)
+print ('satu', 'dua', 'tiga')
+
+#tuple
+print ((1,2,3,4,5))
+print (("satu", "dua", "tiga"))
+
+#dictionary 
+biodata ={
+    "Nama"       : "Hamdan Irfan Wijaya"
+    "NIM"        : "181112103"
+    "Jurusan"    : "Teknik Komputer"
+}
+print (biodata)
+print (type(biodata))
