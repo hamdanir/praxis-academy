@@ -1,3 +1,3 @@
 # praxis-academy
 
-push gagal .
+push gagal ..
